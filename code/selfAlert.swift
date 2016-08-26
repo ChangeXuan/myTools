@@ -1,4 +1,9 @@
 //this is other people's Code
+/*
+ZuberAlert().showAlert("小提示", subTitle: "这是一个测试的小提示", buttonTitle: "取消", otherButtonTitle: "确认") { (OtherButtoewern) -> Void in
+            print("执行了确认")
+        }
+*/
 import UIKit
 //class all
 let SCREEN_WIDTH:CGFloat = UIScreen.mainScreen().bounds.size.width  //屏幕宽度
