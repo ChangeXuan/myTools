@@ -1,11 +1,17 @@
 ```
 /*
+导入HealthKit.framdwork
+
  let test = sleepMonitor()
  test.sleepInit()   //一些配置的初始化
  
  test.saveSleepAnalysis(startTime,endTime:endTime)  //保存数据startTime = NSDate() endTime:NSDate()
  test.retrieveSleepAnalysis()   //获取数据
  */
+ 
+ import UIKit
+ import HealthKit
+ 
 class sleepMonitor {
     private let healthStore = HKHealthStore()
     
