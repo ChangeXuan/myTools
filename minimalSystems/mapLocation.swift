@@ -1,3 +1,8 @@
+/*
+info.plist
++NSLocationWhenInUseUsageDescription
++NSLocationAlwaysUsageDescription
+*/
 import UIKit
 import CoreLocation
 import MapKit
