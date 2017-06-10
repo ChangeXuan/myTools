@@ -21,11 +21,17 @@ class displayCamera: UIViewController{
     }
     
     func initCamera(position:AVCaptureDevicePosition) {
-        //视频输入设备
-        let videoDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
-        for item in videoDevice as! [AVCaptureDevice] {
+       //视频输入设备
+        //let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
+//        for item in videoDevice as! [AVCaptureDevice] {
+//            if item.position == position {
+//                camera = item
+//            }
+//        }
+        let videoDevice = AVCaptureDeviceDiscoverySession.init(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: position)
+        for item in videoDevice!.devices{
             if item.position == position {
-                camera = item
+                self.camera = item
             }
         }
         
@@ -39,9 +45,9 @@ class displayCamera: UIViewController{
         
         //使用AVCaptureVideoPreviewLayer可以将摄像头的拍摄的实时画面显示在viewController(屏幕)上
         let videoLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        videoLayer.frame = self.view.bounds
-        videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.addSublayer(videoLayer)
+        videoLayer?.frame = self.view.bounds
+        videoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.view.layer.addSublayer(videoLayer!)
         
         //启动session会话
         self.captureSession.startRunning()
